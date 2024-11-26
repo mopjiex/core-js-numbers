@@ -49,10 +49,17 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  // if (value1 === Number.MAX_VALUE || value2 === Number.MAX_VALUE) return value2;
-  // return (value1 + value2) / 2;
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  if (value1 === Number.MAX_VALUE && value2 === Number.MAX_VALUE) {
+    return Number.MAX_VALUE;
+  }
+  if (value1 === Number.MAX_VALUE) {
+    return (Number.MAX_VALUE + value2) / 2;
+  }
+  if (value2 === Number.MAX_VALUE) {
+    return (value1 + Number.MAX_VALUE) / 2;
+  }
+  return (value1 + value2) / 2;
 }
 
 /**
@@ -399,8 +406,8 @@ function toPrecision(number, precision) {
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  return number.valueOf();
 }
 
 /**
@@ -448,7 +455,7 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  return parseFloat(str);
+  return Number.parseFloat(str);
 }
 
 /**
@@ -465,8 +472,8 @@ function getFloatOnString(str) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  return Number.parseInt(str, base);
 }
 
 /**
@@ -600,8 +607,8 @@ function getRandomInteger(min, max) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
 
 /**
